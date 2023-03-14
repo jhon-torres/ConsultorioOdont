@@ -31,7 +31,10 @@ document.addEventListener("DOMContentLoaded", function () {
             endTime: "16:00", // an end time (16pm in this example)
         },
 
-        events: "http://127.0.0.1:8000/citas/mostrar",
+        // events: "http://127.0.0.1:8000/citas/mostrar",
+        
+        // conf del despliegue
+        events: "https://consultorioodont-production.up.railway.app/citas/mostrar",
 
         // seleccionar dia
         selectable: true,
@@ -59,7 +62,9 @@ document.addEventListener("DOMContentLoaded", function () {
                 .querySelector('meta[name="csrf-token"]')
                 .getAttribute("content");
 
-            fetch("http://127.0.0.1:8000/cita/editar/" + idCita, {
+                // http://127.0.0.1:8000/cita/editar/
+                
+            fetch("https://consultorioodont-production.up.railway.app/cita/editar/" + idCita, {
                 method: "POST",
                 headers: {
                     "X-CSRF-TOKEN": token,
@@ -123,7 +128,8 @@ document.addEventListener("DOMContentLoaded", function () {
                 .querySelector('meta[name="csrf-token"]')
                 .getAttribute("content");
 
-            fetch("http://127.0.0.1:8000/cita/crear", {
+                // http://127.0.0.1:8000/cita/crear
+            fetch("https://consultorioodont-production.up.railway.app/cita/crear", {
                 method: "POST",
                 body: JSON.stringify(datos),
                 headers: {
@@ -162,7 +168,8 @@ document.addEventListener("DOMContentLoaded", function () {
                 .querySelector('meta[name="csrf-token"]')
                 .getAttribute("content");
 
-            fetch("http://127.0.0.1:8000/cita/reservar/" + id, {
+                http://127.0.0.1:8000/cita/reservar/
+            fetch("https://consultorioodont-production.up.railway.app/cita/reservar/" + id, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -200,7 +207,8 @@ document.addEventListener("DOMContentLoaded", function () {
                 .querySelector('meta[name="csrf-token"]')
                 .getAttribute("content");
 
-            fetch("http://127.0.0.1:8000/cita/cancelar/" + id, {
+                http://127.0.0.1:8000/cita/cancelar/
+            fetch("https://consultorioodont-production.up.railway.app/cita/cancelar/" + id, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
