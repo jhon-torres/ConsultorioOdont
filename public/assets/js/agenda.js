@@ -207,7 +207,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 .querySelector('meta[name="csrf-token"]')
                 .getAttribute("content");
 
-                http://127.0.0.1:8000/cita/cancelar/
+                // http://127.0.0.1:8000/cita/cancelar/
             fetch("https://consultorioodont-production.up.railway.app/cita/cancelar/" + id, {
                 method: "POST",
                 headers: {
