@@ -168,7 +168,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 .querySelector('meta[name="csrf-token"]')
                 .getAttribute("content");
 
-                http://127.0.0.1:8000/cita/reservar/
+                // http://127.0.0.1:8000/cita/reservar/
             fetch("https://consultorioodont-production.up.railway.app/cita/reservar/" + id, {
                 method: "POST",
                 headers: {
