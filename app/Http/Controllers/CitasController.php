@@ -30,7 +30,7 @@ class CitasController extends Controller
     {
         $user = Auth::user(); // Obtener la instancia del modelo de usuario actualmente autenticado
         // citas disponibles o citas que reservo el paciente
-        $all_events = Horario::where('estado_id', '=', 1)->orWhere('id_paciente', '=', $user->id);
+        $all_events = Horario::where('estado_id', '=', 1)->orWhere('id_paciente', '=', $user->id)->get();
         $events = [];
 
         foreach ($all_events as $key => $event) {
