@@ -16,6 +16,7 @@ return new class extends Migration
             $table->date('day_hour');
             $table->time('startHour');
             $table->time('EndHour');
+            $table->bigInteger('id_paciente')->nullable();
             $table->timestamps();
         });
     }

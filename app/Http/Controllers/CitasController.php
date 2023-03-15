@@ -90,9 +90,12 @@ class CitasController extends Controller
 
     public function reservar($id)
     {
+        $user = Auth::user(); // Obtener la instancia del modelo de usuario actualmente autenticado
         $cita = Horario::find($id);
         $cita->update([
             'estado_id' => 2,
+            'id_paciente'=> $user->id,
+            
         ]);
         return response()->json($cita);
     }
@@ -102,6 +105,7 @@ class CitasController extends Controller
         $cita = Horario::find($id);
         $cita->update([
             'estado_id' => 1,
+            'id_paciente'=> null,
         ]);
         return response()->json($cita);
     }
