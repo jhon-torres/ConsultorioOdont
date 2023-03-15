@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", function () {
         },
 
         // events: "http://127.0.0.1:8000/citas/mostrar",
-        
+
         // conf del despliegue
         events: "https://consultorioodont-production.up.railway.app/citas/mostrar",
 
@@ -62,14 +62,18 @@ document.addEventListener("DOMContentLoaded", function () {
                 .querySelector('meta[name="csrf-token"]')
                 .getAttribute("content");
 
-                // http://127.0.0.1:8000/cita/editar/
-                
-            fetch("https://consultorioodont-production.up.railway.app/cita/editar/" + idCita, {
-                method: "POST",
-                headers: {
-                    "X-CSRF-TOKEN": token,
-                },
-            })
+            // http://127.0.0.1:8000/cita/editar/
+
+            fetch(
+                "https://consultorioodont-production.up.railway.app/cita/editar/" +
+                    idCita,
+                {
+                    method: "POST",
+                    headers: {
+                        "X-CSRF-TOKEN": token,
+                    },
+                }
+            )
                 .then((response) => response.json())
                 .then((data) => {
                     console.log(data);
@@ -128,15 +132,18 @@ document.addEventListener("DOMContentLoaded", function () {
                 .querySelector('meta[name="csrf-token"]')
                 .getAttribute("content");
 
-                // http://127.0.0.1:8000/cita/crear
-            fetch("https://consultorioodont-production.up.railway.app/cita/crear", {
-                method: "POST",
-                body: JSON.stringify(datos),
-                headers: {
-                    "Content-Type": "application/json",
-                    "X-CSRF-TOKEN": token,
-                },
-            })
+            // http://127.0.0.1:8000/cita/crear
+            fetch(
+                "https://consultorioodont-production.up.railway.app/cita/crear",
+                {
+                    method: "POST",
+                    body: JSON.stringify(datos),
+                    headers: {
+                        "Content-Type": "application/json",
+                        "X-CSRF-TOKEN": token,
+                    },
+                }
+            )
                 .then((response) => {
                     if (response.ok) {
                         calendar.refetchEvents();
@@ -149,7 +156,9 @@ document.addEventListener("DOMContentLoaded", function () {
                 })
                 .catch((error) => {
                     console.log(error);
-                    alert(error);
+                    calendar.refetchEvents();
+                    $("#cita").modal("hide");
+                    // alert(error);
                 });
         });
     }
@@ -168,14 +177,18 @@ document.addEventListener("DOMContentLoaded", function () {
                 .querySelector('meta[name="csrf-token"]')
                 .getAttribute("content");
 
-                // http://127.0.0.1:8000/cita/reservar/
-            fetch("https://consultorioodont-production.up.railway.app/cita/reservar/" + id, {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                    "X-CSRF-TOKEN": token,
-                },
-            })
+            // http://127.0.0.1:8000/cita/reservar/
+            fetch(
+                "https://consultorioodont-production.up.railway.app/cita/reservar/" +
+                    id,
+                {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                        "X-CSRF-TOKEN": token,
+                    },
+                }
+            )
                 .then((response) => {
                     if (response.ok) {
                         calendar.refetchEvents();
@@ -207,14 +220,18 @@ document.addEventListener("DOMContentLoaded", function () {
                 .querySelector('meta[name="csrf-token"]')
                 .getAttribute("content");
 
-                // http://127.0.0.1:8000/cita/cancelar/
-            fetch("https://consultorioodont-production.up.railway.app/cita/cancelar/" + id, {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                    "X-CSRF-TOKEN": token,
-                },
-            })
+            // http://127.0.0.1:8000/cita/cancelar/
+            fetch(
+                "https://consultorioodont-production.up.railway.app/cita/cancelar/" +
+                    id,
+                {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                        "X-CSRF-TOKEN": token,
+                    },
+                }
+            )
                 .then((response) => {
                     if (response.ok) {
                         calendar.refetchEvents();
