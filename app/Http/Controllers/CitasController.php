@@ -28,7 +28,9 @@ class CitasController extends Controller
 
     public function show()
     {
-        $all_events = Horario::all();
+        $user = Auth::user(); // Obtener la instancia del modelo de usuario actualmente autenticado
+        // citas disponibles o citas que reservo el paciente
+        $all_events = Horario::where('estado_id', '=', 1)->orWhere('id_paciente', '=', $user->id);
         $events = [];
 
         foreach ($all_events as $key => $event) {
