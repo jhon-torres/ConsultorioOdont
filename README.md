@@ -46,3 +46,9 @@
    - Las citas disponibles son mostradas a todos los usuarios.
 ## Gestionar doctores y pacientes
    - No disponible.
+## Autores
+- [@Lesly Herrera](https://github.com/Lesly-liseth)
+- [@Mayra Ñaupari](https://github.com/maypam22)
+- [@Nicole Motoche](https://github.com/nicolemotoche29)
+- [@Jhon Torres](https://github.com/jhon-torres)
+
